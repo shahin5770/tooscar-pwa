@@ -1,0 +1,17 @@
+
+{
+  "name": "Tooscar",
+  "short_name": "Tooscar",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#99cc00",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192x192.png?text=T",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

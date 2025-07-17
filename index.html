@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tooscar - اپلیکیشن یدکی</title>
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+  <style>
+    body { font-family: sans-serif; background: #fff; color: #333; direction: rtl; padding: 1rem }
+    .title { font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem; color: #669900 }
+    .search-box { margin-bottom: 1rem }
+    input[type=text] { width: 100%; padding: 0.5rem; font-size: 1rem; border-radius: 8px; border: 1px solid #ccc }
+    .product { padding: 1rem; border: 1px solid #eee; border-radius: 8px; margin-bottom: 0.5rem }
+    .product .name { font-weight: bold }
+    .product .price { color: #d36c00; margin-top: 0.25rem }
+  </style>
+</head>
+<body>
+  <div class="title">اپلیکیشن توس‌کار - Tooscar</div>
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="جستجو در کالاها..." onkeyup="searchProducts()">
+  </div>
+  <div id="results">
+    <div class="product" data-name="رله 5 پایه 80 آمپر">
+      <div class="name">رله 5 پایه 80 آمپر</div>
+      <div class="price">450,000 تومان</div>
+    </div>
+    <div class="product" data-name="فیوز شیشه‌ای 10 عددی">
+      <div class="name">فیوز شیشه‌ای 10 عددی</div>
+      <div class="price">180,000 تومان</div>
+    </div>
+    <div class="product" data-name="پنل بخاری کوییک">
+      <div class="name">پنل بخاری کوییک</div>
+      <div class="price">39,500,000 تومان</div>
+    </div>
+  </div>
+<script>
+function searchProducts() {
+  var input = document.getElementById("searchInput").value.toLowerCase();
+  var products = document.getElementsByClassName("product");
+  for (var i = 0; i < products.length; i++) {
+    var name = products[i].getAttribute("data-name").toLowerCase();
+    products[i].style.display = name.includes(input) ? "block" : "none";
+  }
+}
+</script>
+</body>
+</html>
